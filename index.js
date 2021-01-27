@@ -31,9 +31,13 @@ app.use(passport.session());
 /* activate google routes */
 require("./routes/authRoutes")(app);
 
-app.get("*", (req, res) => {
-  res.redirect("http://" + req.header.host + req.url);
-});
+// app.get("*", (req, res) => {
+//   res.redirect("http://" + req.header.host + req.url);
+// });
 /** start server */
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server started on ${PORT}`));
+const HOST_NAME = process.env.PORT
+  ? "sheltered-citadel-72082.herokuapp.com"
+  : "localhost";
+
+app.listen(PORT, HOST_NAME, () => console.log(`Server started on ${PORT}`));
