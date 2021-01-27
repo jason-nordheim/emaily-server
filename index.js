@@ -4,8 +4,6 @@ const cookieSession = require("cookie-session");
 const passport = require("passport");
 const keys = require("./config/keys");
 
-console.log("this is working");
-
 require("./models/user"); // no exports, just need this to run
 require("./services/passport"); // no exports, just need this to run
 
@@ -34,13 +32,5 @@ app.use(passport.session());
 require("./routes/authRoutes")(app);
 
 const PORT = process.env.PORT || 5000;
-
-app.get("/", (req, res) => {
-  res.statusCode(404).send();
-});
-
-app.get("/favicon.ico", (req, res) => {
-  res.statusCode(404).send();
-});
 
 app.listen(PORT, () => console.log(`Server started on ${PORT}`));
