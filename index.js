@@ -4,6 +4,8 @@ const cookieSession = require("cookie-session");
 const passport = require("passport");
 const keys = require("./config/keys");
 
+console.log("this is working");
+
 require("./models/user"); // no exports, just need this to run
 require("./services/passport"); // no exports, just need this to run
 
