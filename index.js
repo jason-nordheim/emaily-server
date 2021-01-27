@@ -31,16 +31,17 @@ app.use(passport.session());
 /* activate google routes */
 require("./routes/authRoutes")(app);
 
-// app.get("*", (req, res) => {
-//   res.redirect("http://" + req.header.host + req.url);
-// });
-/** start server */
 const PORT = process.env.PORT || 5000;
-// const HOST_NAME = process.env.PORT
-//   ? "sheltered-citadel-72082.herokuapp.com"
-//   : "localhost";
-try {
-  app.listen(PORT, () => console.log(`Server started on ${PORT}`));
-} catch (ex) {
-  console.error(ex);
-}
+const HOST_NAME = process.env.PORT
+  ? "sheltered-citadel-72082.herokuapp.com"
+  : "localhost";
+
+app.get("/", (req, res) => {
+  res.statusCode(404).send();
+});
+
+app.get("/favicon.ico", (req, res) => {
+  res.statusCode(404).send();
+});
+
+app.listen(PORT, HOST_NAME, () => console.log(`Server started on ${PORT}`));
