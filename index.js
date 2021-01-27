@@ -31,6 +31,9 @@ app.use(passport.session());
 /* activate google routes */
 require("./routes/authRoutes")(app);
 
+app.get("/", (req, res) => {
+  res.send({ test: "this is a test message" });
+});
 /** start server */
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on ${PORT}`));
