@@ -32,6 +32,6 @@ module.exports = (app) => {
   /** add route to logout user  */
   app.get("/api/logout", (req, res) => {
     req.logout(); // removes the user id from the cookie
-    res.send(req.user); // send response (should respond with a nulled user object)
+    res.redirect("/");
   });
 };
