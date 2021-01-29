@@ -32,6 +32,6 @@ module.exports = (app) => {
   /** add route to logout user  */
   app.get("/api/logout", (req, res) => {
     req.logout(); // removes the user id from the cookie
-    res.redirect("/");
+    res.redirect("/"); // redirect to the root path (Home page)
   });
 };
