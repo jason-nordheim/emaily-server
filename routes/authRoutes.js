@@ -16,7 +16,13 @@ module.exports = (app) => {
    * Auth & Passport
    * use code received from google to retrieve user profile
    */
-  app.get("/auth/google/callback", passport.authenticate("google"));
+  app.get(
+    "/auth/google/callback",
+    passport.authenticate("google"),
+    (req, res) => {
+      res.redirect("/surveys");
+    }
+  );
 
   /** add route to retrieve the current user from cookies */
   app.get("/api/current_user", (req, res) => {
